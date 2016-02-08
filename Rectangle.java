@@ -1,8 +1,4 @@
-import java.awt.*;
 
-/**
- * Created by dima- on 08.02.2016.
- */
 public class Rectangle {
 
     private int x1;
@@ -78,7 +74,7 @@ public class Rectangle {
         this.x1 +=x;
         this.y1+=y;
         this.x2+=x;
-        this.y2+=x;
+        this.y2+=y;
         return "Нова позиція:"+ "( ("+this.x1+" , "+this.y1+" ) , ( "+this.x2+" , "+this.y2+") )";
     };
 
