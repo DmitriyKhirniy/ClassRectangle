@@ -1,3 +1,5 @@
+import java.awt.*;
+
 /**
  * Created by dima- on 08.02.2016.
  */
@@ -56,5 +58,52 @@ public class Rectangle {
         return this.y2;
     };
 
-    
+    public boolean pointContain(int x , int y)
+    {
+        boolean contain = false;
+
+         if( ( x1 <= x && x <= x2 ) && (y1 <= y && y <= y2 ) )    contain = true;
+
+        return contain;
+    };
+
+    @Override
+    public String toString()
+    {
+        return "( ("+this.x1+" , "+this.y1+" ) , ( "+this.x2+" , "+this.y2+") )";
+    };
+
+    public String move( int x , int y )
+    {
+        this.x1 +=x;
+        this.y1+=y;
+        this.x2+=x;
+        this.y2+=x;
+        return "Нова позиція:"+ "( ("+this.x1+" , "+this.y1+" ) , ( "+this.x2+" , "+this.y2+") )";
+    };
+
+    public Rectangle combineRectangles( Rectangle rect )
+    {
+        int x1,y1,x2,y2;
+
+        x1 = Math.min( this.x1 , rect.getX1() );
+        y1 = Math.min( this.y1 , rect.getY1() );
+        x2 = Math.max( this.x2 , rect.getX2() );
+        y2 = Math.max( this.y2 , rect.getY2() );
+        return new Rectangle(x1,y1,x2,y2);
+    };
+
+    public Rectangle intersectionOfREctangles( Rectangle rect )
+    {
+        int x1,y1,x2,y2;
+
+        x1 = Math.max( this.x1 , rect.getX1() );
+        y1 = Math.max( this.y1 , rect.getY1() );
+        x2 = Math.min( this.x2 , rect.getX2() );
+        y2 = Math.min( this.y2 , rect.getY2() );
+
+        if( (x1>x2) || (y1>y2) ) return new Rectangle(0,0,0,0);
+        return new Rectangle(x1,y1,x2,y2);
+    };
+
 }

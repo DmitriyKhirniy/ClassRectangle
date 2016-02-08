@@ -4,10 +4,10 @@
 public class MainApi {
     public static void main( String[] args )
     {
-       System.out.print("Hello");
-        System.out.println("World");
-
-        for(int i=0;i<10;i++) System.out.print(i+"\t");
-
+      Rectangle rect = new Rectangle(10,10,100,100);
+       System.out.println( rect.pointContain( 50,50 ) );
+       System.out.println( rect.toString());
+       System.out.println( rect.move( 50,50 )) ;
+        System.out.println( rect.intersectionOfREctangles( new Rectangle( 110,110,120,120 ) ).toString()) ;
     };
 }
